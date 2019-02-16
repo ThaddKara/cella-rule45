@@ -46,9 +46,12 @@ function draw_grid( rctx, rminor, rmajor, rstroke, rfill  )
     rctx.restore( );
 }
 
+// Initialize first row
 function fill_first( ctx )
 {
-    ctx.save( );
-    draw_rect()
-    
+    ctx.save();
+    let p1 = new Path2D();
+    p1.rect(190,0,10,10);
+    ctx.fill(p1);
+    ctx.restore();
 }
