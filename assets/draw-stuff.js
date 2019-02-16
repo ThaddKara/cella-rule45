@@ -1,22 +1,3 @@
-// Draw stuff
-// Time-stamp: <2019-01-21 20:08:33 Chuck Siska>
-// ------------------------------------------------------------
-
-// FUN. Draw filled rect.
-function draw_rect( ctx, stroke, fill ) 
-{
-    stroke = stroke || 'lightgrey';
-    fill = fill || 'dimgrey';
-    ctx.save( );
-    ctx.strokeStyle = stroke;
-    ctx.fillStyle = fill;
-    ctx.lineWidth = 5;
-    ctx.rect(75, 50, canvas.width - 150, canvas.height - 100);
-    ctx.stroke();
-    ctx.fill();
-    ctx.restore( );
-}
-
 // =====================================================  draw_grid ====
 function draw_grid( rctx, rminor, rmajor, rstroke, rfill  ) 
 {
@@ -54,4 +35,26 @@ function fill_first( ctx )
     p1.rect(190,0,10,10);
     ctx.fill(p1);
     ctx.restore();
+}
+
+// Process and fill next row
+function fill_rows( ctx )
+{
+    let _width = 390;
+    let _height = width;
+    let tempy = 0;
+    ctx.save();
+    for(var it = 0; it <= _width; it += 10)
+    {
+        if(it == 0)
+        {
+            var leftpoint = false;
+            if(!ctx.IsPointInPath(it+5,tempy +5))
+            {
+                let p = new Path2D;
+                p.rect(it,tempy,10,10);
+                ctx.fill(p);
+            }
+        }
+    }
 }
