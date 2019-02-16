@@ -35,7 +35,6 @@ function fill_first(ctx) {
 
 function test(ctx){
     ctx.save();
-    ctx.
     
 }
 // Process and fill next row
