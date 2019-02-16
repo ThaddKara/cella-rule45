@@ -1,38 +1,44 @@
-<!doctype html><html><head>
-<title>This is an HTML canvas</title>
-<link rel="stylesheet" href="../assets/styles.css">
+<!doctype html>
+<html>
+
+<head>
+  <title>This is an HTML canvas</title>
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
+
 <body>
 
-<canvas id="grid" width="400" height="400"></canvas>
-
+  <canvas id="grid" width="400" height="400"></canvas>
+  <h1 id="dummy">false</h1>
 </body>
 <script src="../cella-rule45/assets/draw-stuff.js"></script>
 <script>
-// after "Introducing JavaScript Game Development" by Stuart.
+  // after "Introducing JavaScript Game Development" by Stuart.
 
-// =====================================================  draw_title ====
-// Draw filled rect.
-/*function draw_title( context ) 
-{
-    context.save( );
-    context.fillStyle = 'lightgrey';
-    context.font = "30px Arial";
-    context.fillText( "Grid", 150, 140 );
-    context.restore( );
-}*/
-// =====================================================  Main ====
-  var canvas = document.getElementById( "grid" );
-  var context = canvas.getContext( "2d" );
+  // =====================================================  draw_title ====
+  // Draw filled rect.
+  /*function draw_title( context ) 
+  {
+      context.save( );
+      context.fillStyle = 'lightgrey';
+      context.font = "30px Arial";
+      context.fillText( "Grid", 150, 140 );
+      context.restore( );
+  }*/
+  // =====================================================  Main ====
+  const canvas = document.getElementById("grid");
+  const context = canvas.getContext("2d");
   // Draw a grid
-  draw_grid( context, 10, 50, 'black', 'yellow' );
+  draw_grid(context, 10, 50, 'black', 'yellow');
   // Fill initial row
-  fill_first( context );
+  fill_first(context);
   // Fill rows
-  fill_rows( context );
-  
+  //fill_rows( context );
+  test(context);
+  if (context.ispointinpath(1,1)){}
   //draw_rect( context );
   //draw_rect( context );
   //draw_title( context );
-  </script>
+</script>
+
 </html>
