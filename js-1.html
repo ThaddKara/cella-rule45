@@ -2,7 +2,7 @@
 <title>This is an HTML canvas</title>
 <link rel="stylesheet" href="../assets/styles.css">
 </head>
-<body><h1>Playing the HTML canvas</h1>
+<body>
 
 <canvas id="grid" width="400" height="400"></canvas>
 
@@ -24,10 +24,15 @@ function draw_title( context )
 // =====================================================  Main ====
   var canvas = document.getElementById( "grid" );
   var context = canvas.getContext( "2d" );
-  draw_rect( context );
   // Draw a grid
-  draw_grid( context, 10, 50, 'white', 'yellow' );
-  draw_title( context );
-
-</script>
+  draw_grid( context, 10, 50, 'black', 'yellow' );
+  // Fill initial row
+  fill_first( context );
+  // Fill rows
+  fill_rows( context );
+  
+  //draw_rect( context );
+  //draw_rect( context );
+  //draw_title( context );
+  </script>
 </html>
