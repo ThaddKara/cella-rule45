@@ -29,34 +29,28 @@ function fill_first(ctx) {
     ctx.save();
     //let p1 = new Path2D();
     ctx.rect(0, 0, 10, 10);
-    ctx.fillStyle='red';
+    //ctx.fillStyle='red';
     ctx.fill();
     ctx.restore();
 }
 
-function test(ctx){
+function test(ctx) {
     ctx.save();
-    ctx.IsPointInPath(ctx, 5,5);
+    ctx.IsPointInPath(ctx, 5, 5);
     ctx.restore();
 }
 // Process and fill next row
 function fill_rows(ctx) {
     ctx.save();
     let _width = 390;
-    let _height = width;
-    ctx.save();
+    let _height = 390;
     for (var ity = 0; ity <= _height; ity += 10) {
         for (var itx = 0; itx <= _width; itx += 10) {
-            if (itx == 0) {
-                /*if (ctx.is) {
-                    let p = new Path2D;
-                    p.rect(itx, ity + 10, 10, 10);
-                    ctx.fill(p);
-                }*/
-            }
-            else if (it == 390) {
-
+            if (ctx.isPointInPath(itx + 5, ity + 5)) {
+                ctx.rect(itx, ity + 10, 10, 10);
+                ctx.fill();
             }
         }
-    }ctx.restore();
+    }
+    ctx.restore();
 }
