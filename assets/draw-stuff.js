@@ -28,8 +28,8 @@ function draw_grid(rctx, rminor, rmajor, rstroke, rfill) {
 function fill_first(ctx) {
     ctx.save();
     //let p1 = new Path2D();
-    ctx.rect(0, 0, 10, 10);
-    //ctx.fillStyle='red';
+    ctx.rect(190, 0, 10, 10);
+    ctx.fillStyle='red';
     ctx.fill();
     ctx.restore();
 }
@@ -44,13 +44,42 @@ function fill_rows(ctx) {
     ctx.save();
     let _width = 390;
     let _height = 390;
-    for (var ity = 0; ity <= _height; ity += 10) {
-        for (var itx = 0; itx <= _width; itx += 10) {
-            if (ctx.isPointInPath(itx + 5, ity + 5)) {
-                ctx.rect(itx, ity + 10, 10, 10);
-                ctx.fill();
-            }
+    for (var ity = 0; ity < _height; ity += 10) {
+        for (var itx = 0; itx < _width; itx += 10) {
+            StateMechanism(ctx, itx, ity);
         }
     }
     ctx.restore();
+}
+
+// Provide base state mechanism
+function StateMechanism(cc, xcord, ycord){
+    cc.save();
+    var isLeftOn = false;
+    var isMidOn = false;
+    var isRightOn = false;
+    // peek left
+    if(cc.isPointInPath(xcord -5,ycord+5)){isLeftOn = true;}
+    // peek mid
+    if(cc.isPointInPath(xcord+5,ycord+5)){isMidOn = true;}
+    // peek right
+    if(cc.isPointInPath(xcord+15,ycord+5)){isRightOn=true;}
+
+    if(StateTransitions(isLeftOn,isMidOn,isRightOn)){
+        cc.rect(xcord, ycord + 10, 10, 10);
+        cc.fill();
+    }
+    cc.restore();
+}
+
+// Function defining state transitions
+function StateTransitions(isLeft, isMid, isRight){
+    if(isLeft && isMid && isRight){return false;}
+    else if(isLeft && isMid && !isRight){return false;}
+    else if(isLeft && !isMid && isRight){return true;}
+    else if(isLeft && !isMid && !isRight){return false;}
+    else if(!isLeft && isMid && isRight){return true;}
+    else if(!isLeft && isMid && !isRight){return true;}
+    else if(!isLeft && !isMid && isRight){return false;}
+    else if(!isLeft && !isMid && !isRight){return true;}
 }
