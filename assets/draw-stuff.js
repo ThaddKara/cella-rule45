@@ -27,10 +27,10 @@ function draw_grid(rctx, rminor, rmajor, rstroke, rfill) {
 // Initialize first row
 function fill_first(ctx) {
     ctx.save();
-    let p1 = new Path2D();
-    p1.rect(0, 0, 10, 10);
+    //let p1 = new Path2D();
+    ctx.rect(0, 0, 10, 10);
     ctx.fillStyle='red';
-    ctx.fill(p1);
+    ctx.fill();
     ctx.restore();
 }
 
