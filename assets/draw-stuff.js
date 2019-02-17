@@ -29,13 +29,15 @@ function fill_first(ctx) {
     ctx.save();
     let p1 = new Path2D();
     p1.rect(0, 0, 10, 10);
+    ctx.fillStyle='red';
     ctx.fill(p1);
     ctx.restore();
 }
 
 function test(ctx){
     ctx.save();
-    
+    ctx.IsPointInPath(ctx, 5,5);
+    ctx.restore();
 }
 // Process and fill next row
 function fill_rows(ctx) {
