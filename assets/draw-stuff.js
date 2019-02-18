@@ -52,7 +52,7 @@ function fill_rows(ctx) {
     //ctx.restore();
 }
 
-// Provide base state mechanism
+// Params: context , xcord of tracer , ycord of tracer
 function StateMechanism(cc, xcord, ycord){
     //cc.save();
     var isLeftOn = false;
@@ -72,7 +72,7 @@ function StateMechanism(cc, xcord, ycord){
     //cc.restore();
 }
 
-// Function defining state transitions
+// Possible transitions
 function StateTransitions(isLeft, isMid, isRight){
     if(isLeft && isMid && isRight){return false;}
     else if(isLeft && isMid && !isRight){return false;}
