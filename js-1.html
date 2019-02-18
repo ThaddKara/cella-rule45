@@ -8,7 +8,7 @@
 
 <body>
 
-  <canvas id="grid" width="400" height="400"></canvas>
+  <canvas id="grid" width="4000" height="4000"></canvas>
   <p id="dummy"></p>
 </body>
 <script src="../cella-rule45/assets/draw-stuff.js"></script>
@@ -16,12 +16,12 @@
   var canvas = document.getElementById("grid");
   var context = canvas.getContext("2d");
   // Draw a grid
-  draw_grid(context, 10, 50, 'black', 'yellow');
+  //draw_grid(context, 10, 50, 'black', 'yellow');
   // Fill initial row
   fill_first(context);
   // Fill rows
   fill_rows( context );
-  document.getElementById("dummy").innerHTML = context.isPointInPath(1, 1);
+  
 </script>
 
 </html>

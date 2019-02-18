@@ -1,6 +1,6 @@
 // =====================================================  draw_grid ====
 function draw_grid(rctx, rminor, rmajor, rstroke, rfill) {
-    rctx.save();
+    //rctx.save();
     rctx.strokeStyle = rstroke;
     rctx.fillStyle = rfill;
     let width = rctx.canvas.width;
@@ -21,40 +21,40 @@ function draw_grid(rctx, rminor, rmajor, rstroke, rfill) {
         rctx.stroke();
         //if ( iy % rmajor == 0 ) {rctx.fillText( iy, 0, iy + 10 );}
     }
-    rctx.restore();
+    //rctx.restore();
 }
 
 // Initialize first row
 function fill_first(ctx) {
-    ctx.save();
+    //ctx.save();
     //let p1 = new Path2D();
-    ctx.rect(190, 0, 10, 10);
+    ctx.rect(1990, 0, 10, 10);
     ctx.fillStyle='red';
     ctx.fill();
-    ctx.restore();
+    //ctx.restore();
 }
 
-function test(ctx) {
+/*function test(ctx) {
     ctx.save();
     ctx.IsPointInPath(ctx, 5, 5);
     ctx.restore();
-}
+}*/
 // Process and fill next row
 function fill_rows(ctx) {
-    ctx.save();
-    let _width = 390;
-    let _height = 390;
+    //ctx.save();
+    let _width = 3990;
+    let _height = 3990;
     for (var ity = 0; ity < _height; ity += 10) {
         for (var itx = 0; itx < _width; itx += 10) {
             StateMechanism(ctx, itx, ity);
         }
     }
-    ctx.restore();
+    //ctx.restore();
 }
 
 // Provide base state mechanism
 function StateMechanism(cc, xcord, ycord){
-    cc.save();
+    //cc.save();
     var isLeftOn = false;
     var isMidOn = false;
     var isRightOn = false;
@@ -69,7 +69,7 @@ function StateMechanism(cc, xcord, ycord){
         cc.rect(xcord, ycord + 10, 10, 10);
         cc.fill();
     }
-    cc.restore();
+    //cc.restore();
 }
 
 // Function defining state transitions
