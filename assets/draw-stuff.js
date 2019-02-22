@@ -28,22 +28,17 @@ function draw_grid(rctx, rminor, rmajor, rstroke, rfill) {
 function fill_first(ctx) {
     //ctx.save();
     //let p1 = new Path2D();
-    ctx.rect(1990, 0, 10, 10);
+    ctx.rect(390, 0, 10, 10);
     ctx.fillStyle='red';
     ctx.fill();
     //ctx.restore();
 }
 
-/*function test(ctx) {
-    ctx.save();
-    ctx.IsPointInPath(ctx, 5, 5);
-    ctx.restore();
-}*/
 // Process and fill next row
 function fill_rows(ctx) {
     //ctx.save();
-    let _width = 3990;
-    let _height = 3990;
+    let _width = 790;
+    let _height = 790;
     for (var ity = 0; ity < _height; ity += 10) {
         for (var itx = 0; itx < _width; itx += 10) {
             StateMechanism(ctx, itx, ity);
