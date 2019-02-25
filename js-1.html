@@ -3,24 +3,37 @@
 
 <head>
   <title>ZkarCS439 cella-rule45</title>
-  <link rel="stylesheet" href="../assets/styles.css">
+  <link rel="stylesheet" href="../cella-rule45/assets/button.css">
 </head>
 
 <body>
-  <a href="https://s3-us-west-1.amazonaws.com/zkar-cs439-cellarule45/js-1.html">
+  <div>
     <h1>Zakaria Kara CS439 cella-rule45</h1>
-  </a>
+    <button id = "btn" class="button" onmouseover="ChangeText()" onmouseout="ChangeBack()" onclick="Redirect()">Live Example</button>
+  </div>
   <canvas id="grid" width="800" height="800"></canvas>
   <p id="dummy"></p>
 </body>
 <script src="../cella-rule45/assets/draw-stuff.js"></script>
 <script>
+  // ChangeBack
+  function ChangeBack(){
+    document.getElementById("btn").style.background = '#656565'
+  }
+  // ChangeText
+  function ChangeText(){
+    document.getElementById("btn").style.background = '#000000';
+  }
+  // button redirect
+  function Redirect() {
+    window.location.href = "https://s3-us-west-1.amazonaws.com/zkar-cs439-cellarule45/js-1.html";
+  }
   var canvas = document.getElementById("grid");
   var context = canvas.getContext("2d");
   // Fill initial row
   fill_first(context);
   // Fill rows
-  fill_rows( context );
+  fill_rows(context);
 </script>
 
 </html>
